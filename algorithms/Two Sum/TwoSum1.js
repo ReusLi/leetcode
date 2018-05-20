@@ -3,7 +3,7 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function (nums, target) {
+var twoSum1 = function (nums, target) {
     var result = []
     nums.forEach(function (num1, i) {
         nums.forEach(function (num2, j) {

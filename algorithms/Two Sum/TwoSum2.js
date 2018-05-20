@@ -15,6 +15,6 @@ var twoSum2 = function (nums, target) {
 var nums = [2, 7, 11, 15, 7, 11, 15, 7, 11, 15, 7, 11, 15, 7, 11, 15],
     target = 18;
 
-var result = twoSum1(nums, target)
+var result = twoSum2(nums, target)
 
 console.log(result)
