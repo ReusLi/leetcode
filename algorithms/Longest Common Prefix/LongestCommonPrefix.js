@@ -29,7 +29,7 @@ var longestCommonPrefix = function (strs) {
             return str.indexOf(prefix) === 0;
         })
 
-        hasCommonPrefix && prefix.length > result.length ? result = prefix : null;
+        hasCommonPrefix ? result = prefix : null;
     }
 
     return result;
