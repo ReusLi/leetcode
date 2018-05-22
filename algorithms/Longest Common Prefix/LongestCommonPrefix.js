@@ -9,8 +9,9 @@ var longestCommonPrefix = function (strs) {
     } else if (strs.length === 1) {
         return strs[0];
     }
-    var result = '',
-        prefixArr = [];
+    
+    var result = '';
+
     // get min str`s len
     strs = strs.sort(function (a, b) {
         return a.length - b.length;
@@ -23,16 +24,12 @@ var longestCommonPrefix = function (strs) {
         var prefix = firstItem.slice(0, i),
             hasCommonPrefix = false;
 
-        if (prefixArr.indexOf(prefix) === -1) {
-            prefixArr.push(prefix);
-            hasCommonPrefix = strs.every(function (str, index) {
-                return str.indexOf(prefix) === 0;
-            })
+        
+        hasCommonPrefix = strs.every(function (str, index) {
+            return str.indexOf(prefix) === 0;
+        })
 
-            hasCommonPrefix && prefix.length > result.length ? result = prefix : null;
-        } else {
-            continue;
-        }
+        hasCommonPrefix && prefix.length > result.length ? result = prefix : null;
     }
 
     return result;
