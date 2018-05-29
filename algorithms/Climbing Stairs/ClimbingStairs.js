@@ -23,19 +23,28 @@ https://blog.crayygy.com/14599905787744.html
  */
 
 /**
- * 爬楼梯
+ * 爬楼梯 (自底向上的动态规划)
+ * 
+ * 解法思想是, 爬上n阶楼梯的只有2种情况:
+ * 1. 从n-1阶楼梯上
+ * 2. 从n-2阶楼梯上
+ * 所以n阶解为 (n-1) + (n-2) 的解, 而n-1, n-2又可继续拆解, 一直到1阶楼梯和2阶楼梯
+ * 这里可用动态规划, 也可用递归
+ * 但考虑性能, 用动态规划比较好
  * @param {number} n
  * @return {number}
  */
 var climbStairs = function(n) {
     var result = [];
-    result[0] = 1
-    if (n >= 2) {
-        result[1] = 2;
-    }
+    // 爬一步
+    result[0] = 1;
+    // 爬两步
+    result[1] = 2;
     
+    // 三步起的解 = (n-1) + (n-2) 的解
     for (var i = 2; i < n; i++) {
-        result[i] = result[i-1] +result[i-2];
+        result[i] = result[i-1] + result[i-2];
     }
+
     return result[n-1]
 }
