@@ -1,3 +1,40 @@
 <html>
-    <script src="./algorithms/4sum/index.js"></script>
+<!-- <script src="./algorithms/4sum/index.js"></script> -->
+<script>
+    /**
+     * @param {number[]} nums
+     * @return {number}
+     */
+    var majorityElement = function (nums) {
+        if (nums.length < 3) {
+            return nums[0];
+        }
+        // const half = Math.floor(nums.length / 2) + 1;
+        nums = quickSort(nums);
+        debugger;
+        return nums[nums.length / 2];
+    };
+
+    const quickSort = (arr) => {
+        if (arr.length < 2) {
+            return arr;
+        }
+        const mid = arr.splice(Math.floor(arr.length / 2), 1)[0];
+
+        let leftArr = [],
+            rightArr = [];
+
+        arr.map(num => {
+            if (num < mid) {
+                leftArr.push(num)
+            } else {
+                rightArr.push(num)
+            }
+        })
+        return quickSort(leftArr).concat([mid], quickSort(rightArr));
+    }
+
+    majorityElement([1,2,3,2,2,2,5,4,2])
+</script>
+
 </html>
