@@ -46,8 +46,44 @@
 
     var matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
 
-    var result = spiralOrder(matrix);
-    console.log(result);
+    // function selectionSort(arr) {
+    //     function swap(a, b) {
+    //         let temp = arr[b];
+    //         arr[b] = arr[a];
+    //         arr[a] = temp;
+    //     }
+    //     for (let i = 0; i < arr.length; i++) {
+    //         let minIndex = i;
+    //         for (let j = i + 1; j < arr.length; j++) {
+    //             if (arr[minIndex] > arr[j]) {
+    //                 minIndex = j;
+    //             }
+    //         }
+    //         swap(i, minIndex);
+    //     }
+    // }
+
+    const chooseSort = (arr) => {
+        const len = arr.length;
+        for (let i = 0; i < len; i++) {
+            let minIndex = i;
+
+            for (let j = i + 1; j < len; j++) {
+                arr[minIndex] < arr[j]
+                    ? null
+                    : minIndex = j               
+            }
+
+            if (minIndex !== i) {
+                let temp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = temp;
+            }
+        }
+        console.log(arr);
+    }
+
+    chooseSort([1,4,2,5,78,332,12,6,24])
 </script>
 
 </html>
